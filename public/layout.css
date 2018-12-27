@@ -1,0 +1,45 @@
+body{
+	background: #b7b6b0;
+}
+#wrapper{
+	width: 600px;
+	margin: auto;
+}
+#txtUsername{
+	background: transparent;
+	border: 1px solid black;
+}
+#left{
+	width: 30%;
+	background: #a88b6b;
+	float: left;
+}
+#right{
+	width: 70%;
+	background: #6ba899;
+	float: right;
+}
+#boxTitle{
+	border: 1px solid black;
+	padding: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+#boxContent{
+	border: 1px solid black;
+	border-top: none;
+	padding: 5px;
+	text-align: center;
+}
+#sayHi{
+	text-align: right;
+}
+#listMessage{
+	height: 200px;
+	background: #6b8ea8;
+	margin-bottom: 10px;
+}
+#txtMessage{
+	background: transparent;
+	border: 1px solid black;
+}
