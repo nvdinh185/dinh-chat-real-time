@@ -6,9 +6,9 @@ app.set("views", "./views");
 
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen(process.env.PORT || 3000);
+server.listen(3000);
 
-var mangUsers=[];
+var mangUsers=["AAA"];
 io.on("connection", function(socket){
 	console.log("Co nguoi ket noi :"+socket.id);
 	

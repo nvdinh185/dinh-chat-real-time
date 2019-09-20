@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Demo Chat</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="layout.css" />
+		<script src="jquery.js"></script>
+		<script src="socket.io/socket.io.js"></script>
+		<script src="xuly.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<input type="text" id="txtRoom" />
+			<input type="button" id="btnTaoRoom" value="Tao Room" />
+			<div id="left">
+				<h3>Danh sách phòng</h3>
+				<p id="dsRoom"></p>
+			</div>
+			<h4 id="roomHienTai"></h4>
+			<textarea id="content" rows="10"></textarea>
+			<div id="chat">
+				<input type="text" id="txtMessage" />
+				<input type="button" id="btnChat" value="Chat" />
+			</div>
+		</div>
+	</body>
+</html>

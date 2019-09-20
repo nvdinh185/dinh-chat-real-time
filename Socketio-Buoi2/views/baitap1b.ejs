@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Bài tập</title>
+		<meta charset="utf-8" />
+		<script src="jquery.js"></script>
+		<script src="socket.io/socket.io.js"></script>
+		<script>
+		
+			var socket = io("http://localhost:4000");
+			
+			socket.on("mangKetQua", function(data){
+				$("#a").val(data[0]);
+				$("#b").val(data[1]);
+				$("#c").val(data[2]);
+				$("#ketqua").val(data[3]);
+			});
+			
+			$(document).ready(function(){
+				$("input:button").click(function(){
+					var mangGiaTri = [];
+					var a = $("#a").val();
+					mangGiaTri.push(a);
+					var b = $("#b").val();
+					mangGiaTri.push(b);
+					var c = $("#c").val();
+					mangGiaTri.push(c);
+					socket.emit("mangGiaTri", mangGiaTri);
+				});
+			})
+		</script>
+	</head>
+	<body>
+		a<br /><input type="text" id="a" /><br />
+		b<br /><input type="text" id="b" /><br />
+		c<br /><input type="text" id="c" /><br />
+		Kết quả<br /><input type="text" id="ketqua" />
+		<input type="button" value="OK" />
+	</body>
+</html>

@@ -1,5 +1,5 @@
 //gọi điện lên server
-var socket = io("https://dinh-chat-real-time.herokuapp.com/");
+var socket = io("http://localhost:3000/");
 
 socket.on("Server-send-dky-thatbai", function(){
 	alert("Sai username! Co nguoi da dang ky roi!!!");

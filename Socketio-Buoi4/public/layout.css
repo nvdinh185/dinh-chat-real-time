@@ -1,0 +1,35 @@
+body{
+	background: gray;
+}
+#left{
+	width: 20%;
+	float: left;
+	border: 1px solid #305d6d;
+}
+#left h3{
+	color: #c94d14;
+	background: #423e42;
+	margin: 0;
+}
+#left p{
+	text-align: center;
+}
+#content{
+	width: 70%;
+	float: left;
+	border: 1px solid #305d6d;
+	
+}
+#roomHienTai{
+	background: #305d6d;
+	width: 250px;
+	float: right;
+	color: white;
+	margin: 0;
+}
+#chat{
+	float: left;
+    clear: both;
+    margin-left: 20%;
+    margin-top: 20px;
+}
