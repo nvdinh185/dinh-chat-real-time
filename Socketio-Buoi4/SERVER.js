@@ -8,26 +8,26 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 server.listen(3000);
 
-io.on("connection", function(socket){
+io.on("connection", function (socket) {
 	console.log("Co nguoi ket noi :" + socket.id);
-	
-	socket.on("tao-room", function(data){
+
+	socket.on("tao-room", function (data) {
 		socket.join(data);
 		socket.Phong = data;
-		
-		var mang=[];
-		for(r in socket.adapter.rooms){
+
+		var mang = [];
+		for (r in socket.adapter.rooms) {
 			mang.push(r);
 		}
 		io.sockets.emit("server-send-room", mang);
 		socket.emit("server-send-room-socket", data);
 	});
-	
-	socket.on("user-chat", function(data){
+
+	socket.on("user-chat", function (data) {
 		io.sockets.in(socket.Phong).emit("server-chat", data);
 	});
 });
 
-app.get("/",  function(req, res){
+app.get("/", function (req, res) {
 	res.render("trangchu");
 });

@@ -1,37 +1,40 @@
 <html>
-	<head>
-		<title>Bài tập</title>
-		<meta charset="utf-8" />
-		<script src="jquery.js"></script>
-		<script src="socket.io/socket.io.js"></script>
-		<script>
-		
-			var socket = io("http://localhost:4000");
-			
-			socket.on("a", function(a){
-				$("#a").val(a);
+
+<head>
+	<title>Bài tập</title>
+	<meta charset="utf-8" />
+	<script src="jquery.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script>
+
+		var socket = io("http://localhost:4000");
+
+		socket.on("a", function (a) {
+			$("#a").val(a);
+		});
+		socket.on("b", function (b) {
+			$("#b").val(b);
+		});
+		socket.on("tong", function (tong) {
+			$("#ketqua").val(tong);
+		});
+
+		$(document).ready(function () {
+			$("input:button").click(function () {
+				var a = $("#a").val();
+				var b = $("#b").val();
+				socket.emit("a", a);
+				socket.emit("b", b);
 			});
-			socket.on("b", function(b){
-				$("#b").val(b);
-			});
-			socket.on("tong", function(tong){
-				$("#ketqua").val(tong);
-			});
-			
-			$(document).ready(function(){
-				$("input:button").click(function(){
-					var a = $("#a").val();
-					var b = $("#b").val();
-					socket.emit("a", a);
-					socket.emit("b", b);
-				});
-			})
-		</script>
-	</head>
-	<body>
-		a<br /><input type="text" id="a" /><br />
-		b<br /><input type="text" id="b" /><br />
-		Kết quả<br /><input type="text" id="ketqua" />
-		<input type="button" value="OK" />
-	</body>
+		})
+	</script>
+</head>
+
+<body>
+	a<br /><input type="text" id="a" /><br />
+	b<br /><input type="text" id="b" /><br />
+	Kết quả<br /><input type="text" id="ketqua" />
+	<input type="button" value="OK" />
+</body>
+
 </html>

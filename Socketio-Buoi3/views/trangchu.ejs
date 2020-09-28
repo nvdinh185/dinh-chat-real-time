@@ -1,36 +1,39 @@
 <html>
-	<head>
-		<title>Demo Chat</title>
-		<meta charset="utf-8" />
-		<link href="layout.css" rel="stylesheet" type="text/css" />
-		<script src="jquery.js"></script>
-		<script src="socket.io/socket.io.js"></script>
-		<script src="xuly.js"></script>
-	</head>
-	<body>
-		<div id="wrapper">
-			<div id="loginForm">
-				<h3>WHAT'S YOUR NAME?</h3>
-				<input type="text" id="txtUsername" />
-				<input type="button" value="Register" id="btnRegister" />
+
+<head>
+	<title>Demo Chat</title>
+	<meta charset="utf-8" />
+	<link href="layout.css" rel="stylesheet" type="text/css" />
+	<script src="jquery.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script src="xuly.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="loginForm">
+			<h3>WHAT'S YOUR NAME?</h3>
+			<input type="text" id="txtUsername" />
+			<input type="button" value="Register" id="btnRegister" />
+		</div>
+		<div id="chatForm">
+			<div id="left">
+				<div id="boxTitle">Users Online</div>
+				<div id="boxContent"></div>
 			</div>
-			<div id="chatForm">
-				<div id="left">
-					<div id="boxTitle">Users Online</div>
-					<div id="boxContent"></div>
+			<div id="right">
+				<div id="sayHi">
+					Hello <span id="currentUser"></span>
+					<input type="button" id="btnLogout" value="Logout" />
 				</div>
-				<div id="right">
-					<div id="sayHi">
-						Hello <span id="currentUser"></span>
-						<input type="button" id="btnLogout" value="Logout" />
-					</div>
-					<div id="listMessage">					
-					</div>
-					<div id="typing"></div>
-					<input type="text" id="txtMessage" />
-					<input type="button" id="btnSend" value="SEND" />
+				<div id="listMessage">
 				</div>
+				<div id="typing"></div>
+				<input type="text" id="txtMessage" />
+				<input type="button" id="btnSend" value="SEND" />
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>

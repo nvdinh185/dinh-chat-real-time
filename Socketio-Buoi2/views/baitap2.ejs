@@ -1,33 +1,36 @@
 <html>
-	<head>
-		<title>Bài tập</title>
-		<meta charset="utf-8" />
-		<script src="jquery.js"></script>
-		<script src="socket.io/socket.io.js"></script>
-		<script>
-		
-			var socket = io("http://localhost:5000");
-			
-			socket.on("color", function(data){
-				$("body").attr("bgColor", data);
+
+<head>
+	<title>Bài tập</title>
+	<meta charset="utf-8" />
+	<script src="jquery.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script>
+
+		var socket = io("http://localhost:5000");
+
+		socket.on("color", function (data) {
+			$("body").attr("bgColor", data);
+		});
+
+		$(document).ready(function () {
+			$("#do").click(function () {
+				socket.emit("color", "red");
 			});
-			
-			$(document).ready(function(){
-				$("#do").click(function(){
-					socket.emit("color", "red");
-				});
-				$("#xanh").click(function(){
-					socket.emit("color", "blue");
-				});
-				$("#vang").click(function(){
-					socket.emit("color", "yellow");
-				});
-			})
-		</script>
-	</head>
-	<body bgColor="pink">
-		<input type="button" value="Đỏ" id="do" /><br />
-		<input type="button" value="Xanh" id="xanh" /><br />
-		<input type="button" value="Vàng" id="vang" />
-	</body>
+			$("#xanh").click(function () {
+				socket.emit("color", "blue");
+			});
+			$("#vang").click(function () {
+				socket.emit("color", "yellow");
+			});
+		})
+	</script>
+</head>
+
+<body bgColor="pink">
+	<input type="button" value="Đỏ" id="do" /><br />
+	<input type="button" value="Xanh" id="xanh" /><br />
+	<input type="button" value="Vàng" id="vang" />
+</body>
+
 </html>

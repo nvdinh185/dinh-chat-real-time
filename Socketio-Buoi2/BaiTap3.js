@@ -8,18 +8,18 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 server.listen(7000);
 
-io.on("connection", function(socket){
-	console.log("Co nguoi ket noi! "+socket.id);
-	socket.on("disconnect", function(){
+io.on("connection", function (socket) {
+	console.log("Co nguoi ket noi! " + socket.id);
+	socket.on("disconnect", function () {
 		console.log(socket.id + " ngat ket noi!!!");
 	});
-	
-	socket.on("data", function(data){
+
+	socket.on("data", function (data) {
 		socket.broadcast.emit("data", data);
 	});
 
 });
 
-app.get("/",  function(req, res){
+app.get("/", function (req, res) {
 	res.render("baitap3");
 });

@@ -1,28 +1,31 @@
 <html>
-	<head>
-		<title>Bài tập</title>
-		<meta charset="utf-8" />
-		<script src="jquery.js"></script>
-		<script src="socket.io/socket.io.js"></script>
-		<script>
-		
-			var socket = io("http://localhost:7000");
-			
-			socket.on("data", function(data){
-				$("input:text").val(data);
+
+<head>
+	<title>Bài tập</title>
+	<meta charset="utf-8" />
+	<script src="jquery.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script>
+
+		var socket = io("http://localhost:7000");
+
+		socket.on("data", function (data) {
+			$("input:text").val(data);
+		});
+
+		$(document).ready(function () {
+			$("input:button").click(function () {
+				var data = $("input:text").val();
+				$("input:text").val("");
+				socket.emit("data", data);
 			});
-			
-			$(document).ready(function(){
-				$("input:button").click(function(){
-					var data = $("input:text").val();
-					$("input:text").val("");
-					socket.emit("data", data);
-				});
-			})
-		</script>
-	</head>
-	<body>
-		<input type="text" value="" /><br />
-		<input type="button" value="Gửi" />
-	</body>
+		})
+	</script>
+</head>
+
+<body>
+	<input type="text" value="" /><br />
+	<input type="button" value="Gửi" />
+</body>
+
 </html>
